@@ -1,5 +1,5 @@
 let app = angular.module("hearthstoneCardGuideApp",["ngRoute"]);
-let apiLink = `https://us.api.blizzard.com/`;
+let apiLink = `https://us.api.blizzard.com/hearthstone/`;
 
 // Retrieve Access Token
 let params = new URLSearchParams();
@@ -23,6 +23,23 @@ fetch(`https://oauth.battle.net/token`, {
     }
 });
 // Retrieve Access Token End
+
+const rootURL = "https://us.api.blizzard.com/hearthstone/cards/678?locale=en_US"
+ fetch(`${rootURL}`, {
+    headers: { 
+        "Authorization": "Bearer " + localStorage.getItem("token")
+    }}
+ )
+ .then((response) => response.json())
+ .then((content) => {
+    console.log(content)
+ })
+ .catch((error) => {
+    console.error(error)
+ })
+ .finally(() => {
+    console.log("done!")
+ })
 
 
 app.config(function($routeProvider, $locationProvider){

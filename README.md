@@ -12,7 +12,7 @@
 
 **User Stories:** (8 Total - 4 Per Developer)
 
-1.  As a user, I should be able to search a card's, so that I can get information from it.
+1.  As a user, I should be able to search a card, so that I can get information from it.
 2.  As a user, I want to know how much mana a card costs, so that I can plan how to get it in battle.
 3.  As a user, I want to know how much health/attack a minion card has, so that I know how long it can last in battle.
 4.  As a user, I should be able to filter cards by type, so that I can specifically view spell, minion, weapon, hero, and location cards.

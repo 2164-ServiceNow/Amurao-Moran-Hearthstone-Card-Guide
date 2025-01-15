@@ -1,4 +1,4 @@
-let module = angular.module("defaultSearch", []);
+let module = angular.module("defaultSearch", ["searchbar"]);
 module.component("defaultresults", {
     template:
     `<span ng-repeat="card in $ctrl.cards">

@@ -1,11 +1,11 @@
-let module = angular.module("searchbar", [])
+module = angular.module("searchbar", [])
 module.component("searchbar",{
-    templateURL: "app/components/searchBar/searchBar.html",
+    templateUrl: "app/components/searchBar/searchBar.html",
     controller: function($scope, searchBarService){
-        // $scope.searchInput = ""
+        $scope.searchinput = ""
 
-        // $scope.search = function (){
-        //     searchBarService.setQuery($scope.searchInput)
-        // }
+        $scope.search = function(){
+            searchBarService.setQuery($scope.searchinput)
+        }
     }
 })

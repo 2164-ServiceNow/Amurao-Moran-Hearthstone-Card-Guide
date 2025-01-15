@@ -1,4 +1,4 @@
-let module = angular.module("hearthstoneCardGuideApp")
+module = angular.module("hearthstoneCardGuideApp")
 module.service("searchBarService", function(){
     this.query = ""
 

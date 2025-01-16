@@ -1,6 +1,6 @@
 "use strict";
 
-let app = angular.module("hearthstoneCardGuideApp",["ngRoute", "defaultSearch"]);
+let app = angular.module("hearthstoneCardGuideApp",["ngRoute", "search"]);
 
 app.config(function($locationProvider, $routeProvider)
 {
@@ -31,7 +31,7 @@ app.config(function($locationProvider, $routeProvider)
 
 // TODO: Change to Angular fetch
 // Retrieve Access Token
-let apiLink = `https://us.api.blizzard.com/hearthstone/`;
+let apiLink = `https://us.api.blizzard.com/hearthstone/cards?locale=en_US`;
 let params = new URLSearchParams();
 params.append("client_id", `12e8413f3f344256a984d99529f986cb`);
 params.append("client_secret", `E16Mu4edINRoaKjVEk5VrX0ntkOiCQ1d`);

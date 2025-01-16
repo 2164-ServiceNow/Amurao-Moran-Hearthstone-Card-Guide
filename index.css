@@ -1,9 +1,12 @@
- 
-defaultresults
+body
+{
+    margin: 0;
+}
+
+results
 {
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
 }
- 

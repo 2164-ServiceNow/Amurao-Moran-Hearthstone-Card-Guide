@@ -2,10 +2,10 @@ let module = angular.module("search", ["searchbar"]);
 module.component("results", {
     template:
     `<span ng-repeat="card in cards">
-        <img src="{{card.imgsrc}}"/>
+        <img ng-click="redirectCard('/card')" src="{{card.imgsrc}}"/>
     </span>`,
 
-    controller: function ($scope, $http, searchBarService){        
+    controller: function ($scope, $http, searchBarService, $location){        
         $scope.$watch( function(){ return searchBarService.getQuery() }, function(searchInput){
             loadResults();
         });
@@ -19,7 +19,7 @@ module.component("results", {
                     console.log(response.data);
                     $scope.cards = [];
                     response.data["cards"].forEach(card => {
-                        $scope.cards.push({"imgsrc":card["image"]});
+                        $scope.cards.push({"imgsrc":card["image"], "link" : "/card"});
                     });
                 }
                 else
@@ -29,5 +29,13 @@ module.component("results", {
             });
         }
         loadResults();
+
+        $scope.redirectCard = function(link){
+            console.log("hi")
+            $location.path(link)
+            
+
+            
+        }
     }
 })

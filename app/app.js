@@ -1,6 +1,6 @@
 "use strict";
 
-let app = angular.module("hearthstoneCardGuideApp",["ngRoute", "search"]);
+let app = angular.module("hearthstoneCardGuideApp",["ngRoute", "search", "favorites"]);
 
 app.config(function($locationProvider, $routeProvider)
 {

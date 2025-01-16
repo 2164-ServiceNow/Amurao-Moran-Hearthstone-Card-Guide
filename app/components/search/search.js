@@ -16,6 +16,7 @@ module.component("results", {
             .then((response) => {
                 if(response.status >= 200 && response.status < 300)
                 {
+                    console.log(response.data);
                     $scope.cards = [];
                     response.data["cards"].forEach(card => {
                         $scope.cards.push({"imgsrc":card["image"]});

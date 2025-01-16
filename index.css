@@ -10,3 +10,17 @@ results
     align-content: center;
     flex-wrap: wrap;
 }
+
+favoritesbar
+{
+    display: flex;
+    gap: 1vw;
+    width: 50vw;
+    margin: 0 25vw;
+    position: sticky;
+    justify-content: center;
+    align-content: center;
+    bottom: 3vh;
+    padding: 2vh 2vw;
+    background: rgba(240,240,240,0.7);
+}

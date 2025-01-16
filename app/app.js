@@ -8,16 +8,19 @@ app.config(function($locationProvider, $routeProvider)
     .when("/", {
         // Changed temporarily because live-server keeps crashing the app >:(
         // redirectTo: "/search"
-        templateUrl: "app/views/search"
+        templateUrl: "/app/views/search"
     })
     .when("/search", {
-        templateUrl: "app/views/search"
+        templateUrl: "/app/views/search"
     })
     .when("/card", {
-        templateUrl: "app/views/card"
+        redirectTo: "/search"
+    })
+    .when("/card/:cardId", {
+        templateUrl: "/app/views/card"
     })
     .when("/404", {
-        templateUrl: "app/views/404"
+        templateUrl: "/app/views/404"
     })
     .otherwise("/404");
 

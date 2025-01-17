@@ -1,0 +1,10 @@
+<form>
+    <label for="collectibles">Collectibles Only: </label>
+    <input type="checkbox" id="collectibles" ng-model="collectibles" ng-change="updateFilters()"/>
+    <label for="rarity">Rarity:</label>
+    <select ng-model="rarity" id="rarity" ng-options="x.value as x.label for x in rarities" ng-change="updateFilters()"></select>
+    <label for="cardtype">Type:</label>
+    <select ng-model="cardtype" id="cardtype" ng-options="x.value as x.label for x in cardtypes" ng-change="updateFilters()"></select>
+    <!-- <label for="manacost">Mana Cost</label>
+    <input type="radio" id="manacost" ng-model="manacost" ng-value="0"/> -->
+</form>

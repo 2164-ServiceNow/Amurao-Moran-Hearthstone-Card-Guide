@@ -94,3 +94,32 @@ carddetails span > text
 {
     display: block;
 }
+
+pagenav div
+{
+    display: flex;
+    width: 100vw;
+}
+
+pagenav div > *
+{
+    display: inline-block;
+    flex-grow: 1;
+    margin: 1vh 0;
+    text-align: center;
+}
+
+pagenav button
+{
+    flex-grow: unset;
+}
+
+pagenav #prevbutton
+{
+    margin-left: 5vw;
+}
+
+pagenav #nextbutton
+{
+    margin-right: 5vw;
+}

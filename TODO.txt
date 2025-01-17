@@ -1,0 +1,9 @@
+<!-- Store Favorite Cards in local storage -->
+<!-- Favorite and unfavorite cards via the card page -->
+<!-- Go to card page via card on favorites bar -->
+<!-- CSS -->
+CAN END PROJECT HERE
+<!-- mana cost radial w/ no default selection -->
+<!-- Cap the top page limit -->
+<!--Minion Types Dropdown Filter ng-if type matches -->
+<!--School Spell Types Dropdown Filter ng-if type matches -->

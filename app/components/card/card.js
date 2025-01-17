@@ -2,18 +2,22 @@ module = angular.module("card", []);
 module.component("carddetails", {
     templateUrl: "/app/components/card/card.html",
     controller: function($scope, $routeParams, $http){
-
         $scope.prevCard = Number($routeParams.cardId) - 1;
         $scope.nextCard = Number($routeParams.cardId) + 1;
 
-        $http.get(`${apiLink}/${$routeParams.cardId}?locale=en_US`, {headers: {"Authorization": "Bearer " + localStorage.getItem("token")}})
+        $http.get(`${apiLink}/${$routeParams.cardId}?locale=en_US`, {headers: {"Authorization": "Bearer " + sessionStorage.getItem("token")}})
         .then((response) => {
             if(response.status >= 200 && response.status < 300)
             {
-                console.log(response.data);
                 $scope.card = response.data;
 
-                console.log($scope.card.rarityId)
+                slugs["minionTypes"].forEach(minionType => {
+                    if(minionType["id"] == $scope.card.minionTypeId)
+                    {
+                        $scope.card.minionTypeId = minionType["name"];
+                    }
+                })
+
                 switch($scope.card.rarityId) {
                     case 1:
                         $scope.type= "Common"

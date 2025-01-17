@@ -1,6 +1,6 @@
 "use strict";
 
-let app = angular.module("hearthstoneCardGuideApp",["ngRoute", "search", "favorites", "card"]);
+let app = angular.module("hearthstoneCardGuideApp",["ngRoute", "search", "favorites", "card", "searchfilters", "pageNav"]);
 
 app.config(function($locationProvider, $routeProvider)
 {
@@ -32,8 +32,6 @@ app.config(function($locationProvider, $routeProvider)
     });
 })
 
-
-// TODO: Change to Angular fetch
 // Retrieve Access Token
 let apiLink = `https://us.api.blizzard.com/hearthstone/cards`;
 let params = new URLSearchParams();
@@ -47,8 +45,8 @@ fetch(`https://oauth.battle.net/token`, {
     if(response.ok)
     {
         response.json().then(content => {
-            localStorage.setItem("token", content["access_token"])
-            console.log(localStorage.getItem("token"));
+            sessionStorage.setItem("token", content["access_token"])
+            console.log(sessionStorage.getItem("token"));
         })
     }
     else
@@ -57,3 +55,29 @@ fetch(`https://oauth.battle.net/token`, {
     }
 });
 // Retrieve Access Token End
+
+// Retrieve Slugs
+// rarity, type, minon types, spell schools
+let slugs = {"rarities":[], "types":[], "minionTypes":[], "spellSchools":[]};
+
+Object.keys(slugs).forEach(key => {
+    fetch(`https://us.api.blizzard.com/hearthstone/metadata/${key}?locale=en_US`, {
+        headers: { 
+            "Authorization": "Bearer " + sessionStorage.getItem("token")
+        }
+    }).then(response => {
+        if(response.ok)
+        {
+            response.json().then(content => {
+                slugs[key] = content;
+            })
+        }
+        else
+        {
+            error("Unable to get data from API.");
+        }
+    });
+});
+
+console.log(slugs);
+// Retrieve Slugs End

@@ -12,6 +12,27 @@ module.component("carddetails", {
             {
                 console.log(response.data);
                 $scope.card = response.data;
+
+                console.log($scope.card.rarityId)
+                switch($scope.card.rarityId) {
+                    case 1:
+                        $scope.type= "Common"
+                        break;
+                    case 2:
+                        $scope.type= "Free"
+                        break;
+                    case 3:
+                        $scope.type = "Rare"
+                        break;
+                    case 4:
+                        $scope.type = "Epic"
+                        break;
+                    case 5:
+                        $scope.type = "Legendary"
+                        
+
+
+                }
             }
             else
             {

@@ -17,18 +17,23 @@ module.component("carddetails", {
                 switch($scope.card.rarityId) {
                     case 1:
                         $scope.type= "Common"
+                        $scope.craftcost = 40
                         break;
                     case 2:
                         $scope.type= "Free"
+                        $scope.craftcost = 0
                         break;
                     case 3:
                         $scope.type = "Rare"
+                        $scope.craftcost = 100
                         break;
                     case 4:
                         $scope.type = "Epic"
+                        $scope.craftcost = 400
                         break;
                     case 5:
                         $scope.type = "Legendary"
+                        $scope.craftcost = 1600
                         break;                      
                 }
             }

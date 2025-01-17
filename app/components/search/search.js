@@ -11,7 +11,7 @@ module.component("results", {
         });
 
         function loadResults(){
-            $http.get(`${apiLink}&textFilter=${searchBarService.getQuery()}`, {headers: {"Authorization": "Bearer " + localStorage.getItem("token")}})
+            $http.get(`${apiLink}?locale=en_US&textFilter=${searchBarService.getQuery()}`, {headers: {"Authorization": "Bearer " + localStorage.getItem("token")}})
             .then((response) => {
                 if(response.status >= 200 && response.status < 300)
                 {

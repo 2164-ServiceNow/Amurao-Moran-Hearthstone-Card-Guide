@@ -1,1 +1,23 @@
-<h1>this will have card details</h1>
+<h1>this will have card details {{cardId}}</h1>
+<h1>This is the page for viewing a card</h1>
+<a href="/">Back to search</a>
+<a href="/card/{{prevCard}}">Prev Card</a>
+<a href="/card/{{nextCard}}">Next Card</a>
+<div>
+    <span>
+        <img src="{{card.image}}" />
+    </span>
+    <span>
+        <text>{{card.name}}</text>
+        <text ng-if="card.id">Card ID: {{card.id}}</text>
+        <text ng-if="card.manaCost">Mana Cost: {{card.manaCost}}</text>
+        <text ng-if="card.health">Health: {{card.health}}</text>
+        <text ng-if="card.attack">Attack: {{card.attack}}</text>
+        <text ng-if="card.rarityId">RarityId: {{card.rarityId}}</text>
+        <text ng-if="card.craftingCost">{{card.craftingCost}}</text>
+        <!-- <text ng-if="card.minionTypeId">Minion Type: {{card.minionTypeId}}</text> -->
+        <text ng-if="card.text">Text: {{card.text}}</text>
+        <text ng-if="card.flavorText">Flavor Text: {{card.flavorText}}</text>
+        <text ng-if="card.artistName">Artist: {{card.artistName}}</text>
+    </span>
+</div>

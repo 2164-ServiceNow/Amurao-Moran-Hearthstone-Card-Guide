@@ -1,20 +1,21 @@
 "use strict";
 
-let app = angular.module("hearthstoneCardGuideApp",["ngRoute", "search", "favorites"]);
+let app = angular.module("hearthstoneCardGuideApp",["ngRoute", "search", "favorites", "card"]);
 
 app.config(function($locationProvider, $routeProvider)
 {
     $routeProvider
     .when("/", {
-        // Changed temporarily because live-server keeps crashing the app >:(
-        // redirectTo: "/search"
-        templateUrl: "/app/views/search"
-    })
-    .when("/search", {
-        templateUrl: "/app/views/search"
+        redirectTo: "/search"
     })
     .when("/card", {
         redirectTo: "/search"
+    })
+    .when("/index.html", {
+        redirectTo: "/search"
+    })
+    .when("/search", {
+        templateUrl: "/app/views/search"
     })
     .when("/card/:cardId", {
         templateUrl: "/app/views/card"
@@ -34,7 +35,7 @@ app.config(function($locationProvider, $routeProvider)
 
 // TODO: Change to Angular fetch
 // Retrieve Access Token
-let apiLink = `https://us.api.blizzard.com/hearthstone/cards?locale=en_US`;
+let apiLink = `https://us.api.blizzard.com/hearthstone/cards`;
 let params = new URLSearchParams();
 params.append("client_id", `12e8413f3f344256a984d99529f986cb`);
 params.append("client_secret", `E16Mu4edINRoaKjVEk5VrX0ntkOiCQ1d`);
@@ -56,23 +57,3 @@ fetch(`https://oauth.battle.net/token`, {
     }
 });
 // Retrieve Access Token End
-
-// // Retrieve Test Card
-// const testCard = 678;
-// fetch(`${apiLink}/cards/${testCard}?locale=en_US`, {
-//     headers: { 
-//         "Authorization": "Bearer " + localStorage.getItem("token")
-//     }
-// }).then(response => {
-//     if(response.ok)
-//     {
-//         response.json().then(content => {
-//             console.log(content)
-//         })
-//     }
-//     else
-//     {
-//         error("Unable to get data from API.");
-//     }
-// });
-// // Retrieve Test Card End

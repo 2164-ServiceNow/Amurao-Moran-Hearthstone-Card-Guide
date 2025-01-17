@@ -29,9 +29,7 @@ module.component("carddetails", {
                         break;
                     case 5:
                         $scope.type = "Legendary"
-                        
-
-
+                        break;                      
                 }
             }
             else

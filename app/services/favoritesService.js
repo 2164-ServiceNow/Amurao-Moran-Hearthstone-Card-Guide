@@ -1,15 +1,10 @@
 module = angular.module("hearthstoneCardGuideApp")
 module.service("favoritesService", function(){
-    this.favorites = [];
+    this.favorites = localStorage.getItem("favorites") ? localStorage.getItem("favorites").split(",") : [];
 
     this.save = function()
     {
-
-    }
-
-    this.load = function()
-    {
-        
+        localStorage.setItem("favorites", this.favorites.toString());
     }
 
     this.getFavorites = function()
@@ -42,6 +37,7 @@ module.service("favoritesService", function(){
         {
             this.favorites.push(cardId);
         }
+        this.save();
     }
     
     this.removeFavorite = function(cardId)
@@ -51,5 +47,6 @@ module.service("favoritesService", function(){
         {
             this.favorites.splice(index, 1);
         }
+        this.save();
     }
 })

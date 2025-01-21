@@ -37,36 +37,20 @@ module.component("carddetails", {
             if(response.status >= 200 && response.status < 300)
             {
                 $scope.card = response.data;
-
                 slugs["minionTypes"].forEach(minionType => {
                     if(minionType["id"] == $scope.card.minionTypeId)
                     {
                         $scope.card.minionTypeId = minionType["name"];
                     }
                 })
-
-                switch($scope.card.rarityId) {
-                    case 1:
-                        $scope.type= "Common"
-                        $scope.craftcost = 40
-                        break;
-                    case 2:
-                        $scope.type= "Free"
-                        $scope.craftcost = 0
-                        break;
-                    case 3:
-                        $scope.type = "Rare"
-                        $scope.craftcost = 100
-                        break;
-                    case 4:
-                        $scope.type = "Epic"
-                        $scope.craftcost = 400
-                        break;
-                    case 5:
-                        $scope.type = "Legendary"
-                        $scope.craftcost = 1600
-                        break;                      
-                }
+                slugs["rarities"].forEach(rarity => {
+                    if(rarity["id"] == $scope.card.rarityId)
+                    {
+                        $scope.card.rarityId = rarity["name"];
+                        $scope.card.craftingCost = `${rarity["craftingCost"][0]} Regular, ${rarity["craftingCost"][1]} Golden`; 
+                        $scope.card.dustValue = `${rarity["dustValue"][0]} Regular, ${rarity["dustValue"][1]} Golden`; 
+                    }
+                })
             }
             else
             {

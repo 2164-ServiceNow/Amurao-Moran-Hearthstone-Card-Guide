@@ -1,7 +1,6 @@
-SAVE FAVORITES TO LOCALSTORAGE
 CAN END PROJECT HERE
-<!-- CSS -->
-<!-- mana cost radial w/ no default selection -->
-<!-- Cap the top page limit -->
-<!--Minion Types Dropdown Filter ng-if type matches -->
-<!--School Spell Types Dropdown Filter ng-if type matches -->
+turn apitoken and slugs into value recipe @ https://docs.angularjs.org/guide/providers
+CSS
+mana cost radial w/ no default selection
+Minion Types Dropdown Filter ng-if type matches
+School Spell Types Dropdown Filter ng-if type matches

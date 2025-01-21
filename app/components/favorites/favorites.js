@@ -6,7 +6,6 @@ module.component("favoritesbar",{
     controller: function($scope, $location, favoritesService){
         $scope.$watch(favoritesService.getFavorites(), function(){
             $scope.favoriteItems = favoritesService.getFavorites();
-            console.log($scope.favoriteItems);
         });
 
         $scope.favoriteItem = function(item)

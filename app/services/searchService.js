@@ -45,7 +45,7 @@ module.service("searchService", function(){
     
 
     // Filters
-    this.filters = {};
+    this.filters = {"collectibles":true};
     this.getFilters = function()
     {
         return this.filters;

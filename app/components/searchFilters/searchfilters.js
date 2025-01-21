@@ -24,6 +24,6 @@ module.component("searchfilters",{
             });
         })
 
-        console.log($scope.cardtypes);
+        $scope.collectibles = true;
     }
 })

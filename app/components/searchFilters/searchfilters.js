@@ -8,7 +8,7 @@ module.component("searchfilters",{
             searchService.setType($scope.cardtype);
         }
 
-        $scope.rarities = [];
+        $scope.rarities = [{"label":"--Select--", "value":" "}];
         slugs["rarities"].forEach(rarity => {
             $scope.rarities.push({
                 label:rarity["name"],
@@ -16,12 +16,14 @@ module.component("searchfilters",{
             });
         })
 
-        $scope.cardtypes = [];
+        $scope.cardtypes = [{"label":"--Select--", "value":" "}];
         slugs["types"].forEach(cardtype => {
             $scope.cardtypes.push({
                 label:cardtype["name"],
                 value:cardtype["slug"]
             });
         })
+
+        console.log($scope.cardtypes);
     }
 })

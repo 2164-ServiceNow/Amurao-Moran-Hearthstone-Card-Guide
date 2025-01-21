@@ -3,6 +3,9 @@ body
     margin: 0;
     background: black;
     color: white;
+    --fontSize: max(2vh, 0.9vw);
+    --headerBackground: gray;
+    --navBackground: silver;
 }
 
 body > div
@@ -20,7 +23,13 @@ header
     width: 100vw;
     text-align: center;
     padding: 3vh 1vw;
-    background: gray;
+    background: var(--headerBackground)
+}
+
+header a
+{
+    color: unset;
+    text-decoration: none;
 }
 
 searchbar
@@ -31,7 +40,7 @@ searchbar
 
 h1, h2, h3, h4, h5
 {
-    margin: 1vh;
+    margin: 0;
 }
 
 results
@@ -78,21 +87,64 @@ favoritesbar
     background: rgba(240,240,240,0.7);
 }
 
-carddetails > div > span:first-child
+carddetails
 {
-    display: inline-block;
-    width: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+cardnav
+{
+    display: block;
+    background: var(--navBackground);
+    padding: 1vh 1vw;
+    width: 100vw;
+    text-align: center;
+}
+
+carddetails > div
+{
+    display: flex;
+    width: 60vw;
+}
+
+carddetails > div
+{
+    gap: 1vw;
 }
 
 carddetails > div > span
 {
-    display: inline-block;
-    width: 40vw;
+    display: inline-flex;
+    flex-grow: 3;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3vh;
+}
+
+carddetails > div > span:first-child
+{
+    flex-grow: 1;
 }
 
 carddetails span > text
 {
     display: block;
+    font-size: var(--fontSize);
+}
+
+carddetails span > text:first-child
+{
+    font-size: 2vh;
+    font-size: calc(var(--fontSize) * 1.1);
+    font-weight: bold;
+}
+
+pagenav
+{
+    background: var(--navBackground); 
 }
 
 pagenav div
@@ -122,4 +174,9 @@ pagenav #prevbutton
 pagenav #nextbutton
 {
     margin-right: 5vw;
+}
+
+favoriteitem
+{
+    cursor: pointer;
 }

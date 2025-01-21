@@ -1,9 +1,36 @@
 module = angular.module("card", []);
 module.component("carddetails", {
     templateUrl: "/app/components/card/card.html",
-    controller: function($scope, $routeParams, $http){
-        $scope.prevCard = Number($routeParams.cardId) - 1;
-        $scope.nextCard = Number($routeParams.cardId) + 1;
+    controller: function($scope, $routeParams, $http, $location, favoritesService){
+        $scope.backToSearch = function()
+        {
+            $location.path("/");
+        }
+
+        $scope.prevCard = function()
+        {
+            $location.path(`/card/${Number($routeParams.cardId) - 1}`);
+        }
+
+        $scope.nextCard = function()
+        {
+            $location.path(`/card/${Number($routeParams.cardId) + 1}`);
+        }
+
+        $scope.favoriteCard = function()
+        {
+            favoritesService.addFavorite($routeParams.cardId);
+            $scope.isFavorite = favoritesService.isFavorite($routeParams.cardId);
+        }
+
+        $scope.unFavoriteCard = function()
+        {
+            favoritesService.removeFavorite($routeParams.cardId);
+            $scope.isFavorite = favoritesService.isFavorite($routeParams.cardId);
+        }
+
+
+        $scope.isFavorite = favoritesService.isFavorite($routeParams.cardId);
 
         $http.get(`${apiLink}/${$routeParams.cardId}?locale=en_US`, {headers: {"Authorization": "Bearer " + sessionStorage.getItem("token")}})
         .then((response) => {

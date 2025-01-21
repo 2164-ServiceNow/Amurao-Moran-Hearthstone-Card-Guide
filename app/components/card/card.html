@@ -1,8 +1,13 @@
-<h1>this will have card details {{cardId}}</h1>
-<h1>This is the page for viewing a card</h1>
-<a href="/">Back to search</a>
-<a href="/card/{{prevCard}}">Prev Card</a>
-<a href="/card/{{nextCard}}">Next Card</a>
+<header>
+    <h1>Card Details</h1>
+</header>
+<cardnav>
+    <button ng-click="backToSearch()" id="backbutton" type="button" class="btn btn-secondary">Back to search</button>
+    <button ng-click="prevCard()" id="prevbutton" type="button" class="btn btn-secondary">Prev Card</button>
+    <button ng-click="nextCard()" id="nextbutton" type="button" class="btn btn-secondary">Next Card</button>
+    <button ng-if="!isFavorite" ng-click="favoriteCard()" id="favoritebutton" type="button" class="btn btn-secondary">Favorite Card</button>
+    <button ng-if="isFavorite" ng-click="unFavoriteCard()" id="unfavoritebutton" type="button" class="btn btn-secondary">Unfavorite Card</button>
+</cardnav>
 <div>
     <span>
         <img src="{{card.image}}" />

@@ -73,20 +73,6 @@ results > span:hover > img
     transition: height 0.15s;
 }
 
-favoritesbar
-{
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 3vh;
-    gap: 1vw;
-    width: 50vw;
-    justify-content: center;
-    align-items: center;
-    padding: 2vh 2vw;
-    background: rgba(240,240,240,0.7);
-}
-
 carddetails
 {
     display: flex;
@@ -176,7 +162,36 @@ pagenav #nextbutton
     margin-right: 5vw;
 }
 
+favoritesbar
+{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3vh;
+    gap: 1vw;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    /* padding: 2vh 2vw; */
+    height: 4em;
+    background: rgba(240,240,240,0.7);
+}
+
 favoriteitem
 {
+    height: 8em;
     cursor: pointer;
+}
+
+favoriteitem img
+{
+    margin: -5em 0;
+    height: 8em;
+    transition: height 0.1s;
+}
+
+favoriteitem:hover img
+{
+    margin-top: -16em;
+    height: 16em;
 }

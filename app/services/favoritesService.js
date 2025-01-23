@@ -1,5 +1,5 @@
 module = angular.module("hearthstoneCardGuideApp")
-module.service("favoritesService", function(){
+module.service("favoritesService", function($http){
     this.favorites = localStorage.getItem("favorites") ? localStorage.getItem("favorites").split(",") : [];
 
     this.save = function()
@@ -9,7 +9,20 @@ module.service("favoritesService", function(){
 
     this.getFavorites = function()
     {
-        return this.favorites;
+        let favoritesList = {};
+        this.favorites.forEach(favorite => {
+            favoritesList[favorite] = 0;
+
+            $http.get(`${apiLink}/${favorite}?locale=en_US`, {headers: {"Authorization": "Bearer " + sessionStorage.getItem("token")}})
+            .then((response) => {
+                if(response.status >= 200 && response.status < 300)
+                {
+                    pushed = true;
+                    favoritesList[favorite] = response.data["image"];
+                }
+            })
+        });
+        return favoritesList;
     }
 
     this.isFavorite = function(cardId)

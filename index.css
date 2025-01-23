@@ -1,11 +1,20 @@
+@font-face
+{
+    font-family: "Macondo";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/macondo/v25/RrQQboN9-iB1IXmOe2LE0Q.woff2) format('woff2');
+}
+
 body
 {
     margin: 0;
     background: black;
     color: white;
     --fontSize: max(2vh, 0.9vw);
-    --headerBackground: gray;
-    --navBackground: silver;
+    --headerBackground: #6c5c51;
+    --navBackground: #FFC971;
+    font-family: "Macondo" !important;
 }
 
 body > div
@@ -15,6 +24,7 @@ body > div
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+    background: #e2daca;
 }
 
 header
@@ -23,7 +33,8 @@ header
     width: 100vw;
     text-align: center;
     padding: 3vh 1vw;
-    background: var(--headerBackground)
+    background: var(--headerBackground);
+    color: white;
 }
 
 header a
@@ -41,6 +52,7 @@ searchbar
 h1, h2, h3, h4, h5
 {
     margin: 0;
+    color: rgb(144, 184, 235);
 }
 
 results
@@ -71,20 +83,6 @@ results > span:hover > img
 {
     height: 100%;
     transition: height 0.15s;
-}
-
-favoritesbar
-{
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 3vh;
-    gap: 1vw;
-    width: 50vw;
-    justify-content: center;
-    align-items: center;
-    padding: 2vh 2vw;
-    background: rgba(240,240,240,0.7);
 }
 
 carddetails
@@ -161,6 +159,11 @@ pagenav div > *
     text-align: center;
 }
 
+pagenav div > h5
+{
+    margin-top: 0.8em;
+}
+
 pagenav button
 {
     flex-grow: unset;
@@ -176,7 +179,29 @@ pagenav #nextbutton
     margin-right: 5vw;
 }
 
+favoritesbar
+{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3vh;
+    gap: 1.5vw;
+    height: 3em;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    background: rgba(240,240,240,0.7);
+    border-radius: 1em;
+}
+
 favoriteitem
 {
     cursor: pointer;
+    font-size: 1.3em;
+    text-shadow: 0 0 0.1em black;
+}
+
+favoriteitem:hover
+{
+    text-shadow: 0 0 0.1em black, 0 0 0.25em black;
 }

@@ -1,0 +1,182 @@
+body
+{
+    margin: 0;
+    background: black;
+    color: white;
+    --fontSize: max(2vh, 0.9vw);
+    --headerBackground: gray;
+    --navBackground: silver;
+}
+
+body > div
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+header
+{
+    display: block;
+    width: 100vw;
+    text-align: center;
+    padding: 3vh 1vw;
+    background: var(--headerBackground)
+}
+
+header a
+{
+    color: unset;
+    text-decoration: none;
+}
+
+searchbar
+{
+    display: block;
+    padding: 1vh 0;
+}
+
+h1, h2, h3, h4, h5
+{
+    margin: 0;
+}
+
+results
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: scroll;
+}
+
+results > span
+{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+results > span > img
+{
+    height: 95%;
+    object-fit: contain;
+}
+
+results > span:hover > img
+{
+    height: 100%;
+    transition: height 0.15s;
+}
+
+favoritesbar
+{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3vh;
+    gap: 1vw;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 2vw;
+    background: rgba(240,240,240,0.7);
+}
+
+carddetails
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+cardnav
+{
+    display: block;
+    background: var(--navBackground);
+    padding: 1vh 1vw;
+    width: 100vw;
+    text-align: center;
+}
+
+carddetails > div
+{
+    display: flex;
+    width: 60vw;
+}
+
+carddetails > div
+{
+    gap: 1vw;
+}
+
+carddetails > div > span
+{
+    display: inline-flex;
+    flex-grow: 3;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3vh;
+}
+
+carddetails > div > span:first-child
+{
+    flex-grow: 1;
+}
+
+carddetails span > text
+{
+    display: block;
+    font-size: var(--fontSize);
+}
+
+carddetails span > text:first-child
+{
+    font-size: 2vh;
+    font-size: calc(var(--fontSize) * 1.1);
+    font-weight: bold;
+}
+
+pagenav
+{
+    background: var(--navBackground); 
+}
+
+pagenav div
+{
+    display: flex;
+    width: 100vw;
+}
+
+pagenav div > *
+{
+    display: inline-block;
+    flex-grow: 1;
+    margin: 1vh 0;
+    text-align: center;
+}
+
+pagenav button
+{
+    flex-grow: unset;
+}
+
+pagenav #prevbutton
+{
+    margin-left: 5vw;
+}
+
+pagenav #nextbutton
+{
+    margin-right: 5vw;
+}
+
+favoriteitem
+{
+    cursor: pointer;
+}

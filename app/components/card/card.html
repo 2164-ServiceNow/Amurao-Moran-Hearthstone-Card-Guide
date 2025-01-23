@@ -1,1 +1,29 @@
-<h1>this will have card details</h1>
+<header>
+    <h1>Card Details</h1>
+</header>
+<cardnav>
+    <button ng-click="backToSearch()" id="backbutton" type="button" class="btn btn-secondary">Back to search</button>
+    <button ng-click="prevCard()" id="prevbutton" type="button" class="btn btn-secondary">Prev Card</button>
+    <button ng-click="nextCard()" id="nextbutton" type="button" class="btn btn-secondary">Next Card</button>
+    <button ng-if="!isFavorite" ng-click="favoriteCard()" id="favoritebutton" type="button" class="btn btn-secondary">Favorite Card</button>
+    <button ng-if="isFavorite" ng-click="unFavoriteCard()" id="unfavoritebutton" type="button" class="btn btn-secondary">Unfavorite Card</button>
+</cardnav>
+<div>
+    <span>
+        <img src="{{card.image}}" />
+    </span>
+    <span>
+        <text>{{card.name}}</text>
+        <text ng-if="card.id">Card ID: {{card.id}}</text>
+        <text ng-if="card.manaCost">Mana Cost: {{card.manaCost}}</text>
+        <text ng-if="card.health">Health: {{card.health}}</text>
+        <text ng-if="card.attack">Attack: {{card.attack}}</text>
+        <text ng-if="card.rarityId">Rarity: {{card.rarityId}}</text>
+        <text ng-if="card.craftingCost">Cost to craft: {{card.craftingCost}}</text>
+        <text ng-if="card.dustValue">Disenchant Dust: {{card.dustValue}}</text>
+        <text ng-if="card.minionTypeId">Minion Type: {{card.minionTypeId}}</text>
+        <text ng-if="card.text">Text: {{card.text}}</text>
+        <text ng-if="card.flavorText">Flavor Text: {{card.flavorText}}</text>
+        <text ng-if="card.artistName">Artist: {{card.artistName}}</text>
+    </span>
+</div>

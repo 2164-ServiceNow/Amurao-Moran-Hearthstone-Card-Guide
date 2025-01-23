@@ -7,6 +7,7 @@
 *   HTML
 *   CSS
 *   JavaScript
+*   Bootstrap (5.3.3)
 *   AngularJS (1.8.2)
 *   Battle.net Hearthstone API (https://us.api.blizzard.com) (https://develop.battle.net/documentation/guides/)
 
@@ -19,7 +20,15 @@
 5.  As a user, I want to know how much a card costs to craft, so that I can unlock it in game.
 6.  As a user, I should be able to search by rarity, so that I can flex cards against my opponents.
 7.  As a user, I want a way to pin cards that I like, so that I can easily come back to them.
-8.  As a user, I want to the description of the card, so that I can know and leverage its special abilities.
+8.  As a user, I want to view the description of the card, so that I can know and leverage its special abilities.
+
+**Development Environment Setup:**
+
+*   Clone github repository
+*   Install a web browser if not present
+*   Install VSCode
+*   Install Live Server Extension in VSCode [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+*   Open repository in VSCode, open index.html with Live Server.
 
 **Collaborators:**
 

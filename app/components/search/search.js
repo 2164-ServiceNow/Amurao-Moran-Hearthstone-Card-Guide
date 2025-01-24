@@ -16,7 +16,7 @@ module.component("results", {
 
         function loadResults(){
             let searchLink = `${apiLink}?locale=en_US&page=${searchService.getPage()}
-            ${searchService.getQuery()?"&textFilter="+searchService.getQuery():""}
+            ${searchService.getQuery()?"&textFilter="+searchService.getQuery().replaceAll(" ","_"):""}
             ${searchService.getFilters()["collectibles"]?"&collectible=1":"&collectible=0,1"}
             ${searchService.getFilters()["rarity"]?"&rarity="+searchService.getFilters()["rarity"]:""}
             ${searchService.getFilters()["type"]?"&type="+searchService.getFilters()["type"]:""}
@@ -43,6 +43,8 @@ module.component("results", {
         loadResults();
 
         $scope.redirectCard = function(img){
+            searchService.setQuery("");
+            searchService.setPage(1);
             $location.path(img["card"]["link"]);
         }
     }
